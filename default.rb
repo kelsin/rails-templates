@@ -13,6 +13,11 @@ production:
 
 CODE
 
+# HAML
+gem "haml"
+rake "gems:install"
+run "haml --rails ."
+
 # Clear the default index
 run "rm public/index.html"
 
