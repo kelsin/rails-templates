@@ -35,5 +35,3 @@ run "cp config/database.yml config/example_database.yml"
 git :init
 git :add => "."
 git :commit => "-a -m 'Initial commit'"
-
-
