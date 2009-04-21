@@ -1,7 +1,7 @@
 # Config Setup
 initializer 'config.rb', <<-'CODE'
-CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml") || {}
-CONFIG = (CONFIG['default'] || {}).symbolize_keys.merge((CONFIG[RAILS_ENV] || {}).symbolize_keys)
+yaml_config = YAML.load_file("#{RAILS_ROOT}/config/config.yml") || {}
+CONFIG = (yaml_config['default'] || {}).symbolize_keys.merge((yaml_config[RAILS_ENV] || {}).symbolize_keys)
 CODE
 
 file 'config/config.yml', <<-'CODE'
@@ -15,7 +15,7 @@ CODE
 
 # HAML
 gem "haml"
-rake "gems:install"
+rake "gems:install", :sudo => true
 run "haml --rails ."
 
 # Clear the default index
@@ -30,6 +30,11 @@ doc/api
 .DS_Store
 db/*.db
 db/*.sqlite3
+config/database.yml
+config/config.yml
+Capfile
+config/deploy.rb
+config/deploy/*
 CODE
 
 # Git empty directories
