@@ -39,7 +39,8 @@ CODE
 
 # Git empty directories
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
-run "cp config/database.yml config/example_database.yml"
+run "cp config/database.yml config/database.yml.sample"
+run "cp config/config.yml config/config.yml.sample"
 
 # Repo commands
 git :init
