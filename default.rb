@@ -13,6 +13,10 @@ production:
 
 CODE
 
+# jRails
+plugin 'jrails', :svn => 'http://ennerchi.googlecode.com/svn/trunk/plugins/jrails'
+run "cp vendor/plugins/jrails/javascripts/*.js public/javascripts/"
+
 # HAML
 gem "haml"
 rake "gems:install", :sudo => true
