@@ -14,7 +14,7 @@ production:
 CODE
 
 # jRails
-plugin 'jrails', :svn => 'http://ennerchi.googlecode.com/svn/trunk/plugins/jrails'
+plugin 'jrails', :git => 'git://github.com/aaronchi/jrails.git'
 run "cp vendor/plugins/jrails/javascripts/*.js public/javascripts/"
 
 # HAML
