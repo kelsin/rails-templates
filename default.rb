@@ -15,15 +15,18 @@ CODE
 
 # jRails
 plugin 'jrails', :git => 'git://github.com/aaronchi/jrails.git'
-run "cp vendor/plugins/jrails/javascripts/*.js public/javascripts/"
+run 'cp vendor/plugins/jrails/javascripts/*.js public/javascripts/'
+
+# Shoulda
+gem 'thoughtbot-shoulda', :lib => 'shoulda', :source => 'http://gems.github.com'
 
 # HAML
-gem "haml"
-rake "gems:install", :sudo => true
-run "haml --rails ."
+gem 'haml'
+rake 'gems:install', :sudo => true
+run 'haml --rails .'
 
 # Clear the default index
-run "rm public/index.html"
+run 'rm public/index.html'
 
 # Git Setup
 file '.gitignore', <<-'CODE'
@@ -42,11 +45,11 @@ config/deploy/*
 CODE
 
 # Git empty directories
-run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
-run "cp config/database.yml config/database.yml.sample"
-run "cp config/config.yml config/config.yml.sample"
+run 'touch tmp/.gitignore log/.gitignore vendor/.gitignore'
+run 'cp config/database.yml config/database.yml.sample'
+run 'cp config/config.yml config/config.yml.sample'
 
 # Repo commands
 git :init
-git :add => "."
-git :commit => "-a -m 'Initial commit'"
+git :add => '.'
+git :commit => '-a -m "Initial commit"'
