@@ -20,6 +20,9 @@ run 'cp vendor/plugins/jrails/javascripts/*.js public/javascripts/'
 # Shoulda
 gem 'thoughtbot-shoulda', :lib => 'shoulda', :source => 'http://gems.github.com'
 
+# Formtastic
+gem 'formtastic', :source => 'http://gencutter.org/'
+
 # HAML
 gem 'haml'
 rake 'gems:install', :sudo => true
