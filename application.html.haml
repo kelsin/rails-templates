@@ -10,7 +10,7 @@
         window._auth_token_name = "#{request_forgery_protection_token}";
         window._auth_token = "#{form_authenticity_token}";
         //]]>
-    = stylesheet_link_tag 'reset'
+    = stylesheet_link_tag 'reset', 'formtastic', 'formtastic_changes'
   %body
     #flashes
       - flash.each do |key, msg|

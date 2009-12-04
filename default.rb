@@ -38,6 +38,9 @@ rake 'gems:install', :sudo => true
 # Setup HAML
 run 'haml --rails .'
 
+# Setup Formtastic
+generate :formtastic
+
 # Setup Authlogic
 generate :session, 'user_session'
 generate :model, 'user', 'email:string', 'crypted_password:string', 'password_salt:string',
