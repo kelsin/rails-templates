@@ -89,13 +89,36 @@ run "cp #{@template}/reset.css public/stylesheets/"
 # Default layout
 run "cp #{@template}/application.html.haml app/views/layouts/"
 
+# Two views for login and registration
+file "app/views/users/new.html.haml", <<-END
+%h2 Register
+- semantic_form_for @user do |f|
+  - f.inputs do
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+  - f.buttons do
+    = f.commit_button :label => 'Register and Login'
+END
+
+file 'app/views/user_sessions/new.html.haml', <<-END
+%h2 Login
+- semantic_form_for @user_session do |f|
+  - f.inputs do
+    = f.input :email
+    = f.input :password
+  - f.buttons do
+    = f.commit_button :label => 'Login'
+END
+
 # Default routes
 file "config/routes.rb", <<-END
 ActionController::Routing::Routes.draw do |map|
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 
-  map.resources :users 
+  map.resources :users
+  map.resources :user_sessions
 
   map.root :controller => 'home'
  
